@@ -44,15 +44,21 @@ int main(){
     resetBoard();
     printBoard();
     checkForEmptySpaces();
+    int turnCount = 0;
     while (emptySpaces != 0 && winner == ' '){
-        if(userSymbol == "O"){
+        if((userSymbol == "O" && turnCount%2 == 0) || (userSymbol == "X" && turnCount%2 != 0)){ //player move as O will go first
             playerMove();
             printBoard();
             checkForWinner();
             checkForEmptySpaces();
+            turnCount++;
         }
-        else{
+        else {
             computerMove();
+            printBoard();
+            checkForWinner();
+            checkForEmptySpaces();
+            turnCount++;
         }
     }
 }
@@ -88,7 +94,7 @@ void computerMove(){
 
 }
 void checkForWinner(){
-    if(winning condition){
-        winner = userSymbol;
-    }
+    // if(winning condition){
+    //     winner = userSymbol;
+    // }
 }
